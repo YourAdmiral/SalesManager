@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesManager", "SalesManager\SalesManager.csproj", "{7B8C3636-2A47-4771-B494-C8CF51DA10A8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesManager.ConsoleClient", "SalesManager\SalesManager.ConsoleClient.csproj", "{7B8C3636-2A47-4771-B494-C8CF51DA10A8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesManager.DAL", "SalesManager.DAL\SalesManager.DAL.csproj", "{68F52554-C603-483E-B0B9-E71DFC517D86}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesManager.BLL", "SalesManager.BLL\SalesManager.BLL.csproj", "{6A2578B3-BC36-4B80-B4AD-CF2C0D2A58A1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesManager.PL", "SalesManager.PL\SalesManager.PL.csproj", "{F20D241F-5267-4367-9468-4D1F2E1B4C0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesManager.ServiceClient", "SalesManager.ServiceClient\SalesManager.ServiceClient.csproj", "{92F2FEFC-06D0-405A-8F40-E4B4E33D195C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{F20D241F-5267-4367-9468-4D1F2E1B4C0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F20D241F-5267-4367-9468-4D1F2E1B4C0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F20D241F-5267-4367-9468-4D1F2E1B4C0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92F2FEFC-06D0-405A-8F40-E4B4E33D195C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92F2FEFC-06D0-405A-8F40-E4B4E33D195C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92F2FEFC-06D0-405A-8F40-E4B4E33D195C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92F2FEFC-06D0-405A-8F40-E4B4E33D195C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
