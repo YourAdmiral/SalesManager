@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SalesManager.DAL.Repositories
 {
-    class ManagerRepository : IRepository<Manager>
+    public class ManagerRepository : IRepository<Manager>
     {
         private SalesDBContext _db;
 

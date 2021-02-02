@@ -13,7 +13,7 @@ namespace SalesManager.DAL.EF
         public DbSet<Sale> Sales { get; set; }
         public DbSet<Manager> Managers { get; set; }
 
-        public SalesDBContext() : base("SalesDBConnectionString")
+        public SalesDBContext(string connectionString) : base(connectionString)
         {
 
         }

@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SalesManager.DAL.EF;
+using SalesManager.DAL.Interfaces;
+using SalesManager.DAL.Repositories;
 
 namespace SalesManager
 {
@@ -13,10 +15,8 @@ namespace SalesManager
     {
         static void Main(string[] args)
         {
-            using (DbContext context = new SalesDBContext())
-            {
-                context.Database.CreateIfNotExists();
-            }
+            IUnitOfWork unitOfWork = new EFUnitOfWork("SalesDBConnectionString");
+            unitOfWork.CreateDataBase();
         }
     }
 }
