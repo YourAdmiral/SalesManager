@@ -50,5 +50,13 @@ namespace SalesManager.DAL.Repositories
         {
             return _db.Sales.Include(o => o.Manager).Where(predicate).ToList();
         }
+
+        public int? GetId(Func<Sale, bool> predicate)
+        {
+            Sale sale = _db.Sales.FirstOrDefault(predicate);
+            if (sale != null)
+                return sale.Id;
+            return null;
+        }
     }
 }

@@ -16,7 +16,8 @@ namespace SalesManager
         static void Main(string[] args)
         {
             IUnitOfWork unitOfWork = new EFUnitOfWork("SalesDBConnectionString");
-            unitOfWork.CreateDataBase();
+            unitOfWork.CreateDatabase();
+            Console.ReadKey();
         }
     }
 }

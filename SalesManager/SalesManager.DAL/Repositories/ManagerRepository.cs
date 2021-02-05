@@ -50,5 +50,13 @@ namespace SalesManager.DAL.Repositories
         {
             return _db.Managers.Where(predicate).ToList();
         }
+
+        public int? GetId(Func<Manager, bool> predicate)
+        {
+            Manager manager = _db.Managers.FirstOrDefault(predicate);
+            if (manager != null)
+                return manager.Id;
+            return null;
+        }
     }
 }

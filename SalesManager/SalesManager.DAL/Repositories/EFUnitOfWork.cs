@@ -60,12 +60,12 @@ namespace SalesManager.DAL.Repositories
             GC.SuppressFinalize(this);
         }
 
-        public void CreateDataBase()
+        public void CreateDatabase()
         {
             try
             {
                 _db.Database.CreateIfNotExists();
-                Console.WriteLine("DataBase connected!");
+                Console.WriteLine("Database connected!");
             }
             catch (Exception e)
             {

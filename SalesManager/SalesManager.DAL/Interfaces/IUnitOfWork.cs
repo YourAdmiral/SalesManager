@@ -12,6 +12,6 @@ namespace SalesManager.DAL.Interfaces
         IRepository<Manager> Managers { get; }
         IRepository<Sale> Sales { get; }
         void Save();
-        void CreateDataBase();
+        void CreateDatabase();
     }
 }
