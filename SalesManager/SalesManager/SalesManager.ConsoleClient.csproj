@@ -59,21 +59,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SalesManager.BLL\SalesManager.BLL.csproj">
-      <Project>{6a2578b3-bc36-4b80-b4ad-cf2c0d2a58a1}</Project>
-      <Name>SalesManager.BLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SalesManager.DAL\SalesManager.DAL.csproj">
-      <Project>{68f52554-c603-483e-b0b9-e71dfc517d86}</Project>
-      <Name>SalesManager.DAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SalesManager.PL\SalesManager.PL.csproj">
       <Project>{f20d241f-5267-4367-9468-4d1f2e1b4c0c}</Project>
       <Name>SalesManager.PL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SalesManager.ServiceClient\SalesManager.ServiceClient.csproj">
-      <Project>{92f2fefc-06d0-405a-8f40-e4b4e33d195c}</Project>
-      <Name>SalesManager.ServiceClient</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

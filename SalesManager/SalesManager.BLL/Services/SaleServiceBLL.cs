@@ -12,14 +12,14 @@ using System.Threading.Tasks;
 
 namespace SalesManager.BLL.Services
 {
-    public class SaleService : IService
+    public class SaleServiceBLL : IServiceBLL
     {
         private StandardKernel _kernel;
         private IUnitOfWork _db;
 
-        public SaleService(string connection)
+        public SaleServiceBLL(string connectionString)
         {
-            _kernel = new StandardKernel(new ServiceModule(connection));
+            _kernel = new StandardKernel(new ServiceModuleBLL(connectionString));
             _db = _kernel.Get<IUnitOfWork>();
         }
 

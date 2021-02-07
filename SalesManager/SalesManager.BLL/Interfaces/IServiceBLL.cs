@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SalesManager.BLL.Interfaces
 {
-    public interface IService
+    public interface IServiceBLL
     {
         void CheckDatabase();
         void HandleManagerInfo(ManagerDTO managerDTO);

@@ -5,9 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SalesManager.DAL.EF;
-using SalesManager.DAL.Interfaces;
-using SalesManager.DAL.Repositories;
+using SalesManager.PL.Services;
 
 namespace SalesManager
 {
@@ -15,8 +13,8 @@ namespace SalesManager
     {
         static void Main(string[] args)
         {
-            IUnitOfWork unitOfWork = new EFUnitOfWork("SalesDBConnectionString");
-            unitOfWork.CreateDatabase();
+            var service = new Services();
+            service.StartClient();
             Console.ReadKey();
         }
     }

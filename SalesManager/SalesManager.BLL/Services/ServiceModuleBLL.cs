@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace SalesManager.BLL.Services
 {
-    public class ServiceModule : NinjectModule
+    public class ServiceModuleBLL : NinjectModule
     {
         private string _connectionString;
 
-        public ServiceModule(string connection)
+        public ServiceModuleBLL(string connection)
         {
             _connectionString = connection;
         }
