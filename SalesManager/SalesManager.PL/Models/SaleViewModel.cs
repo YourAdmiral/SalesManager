@@ -8,8 +8,8 @@ namespace SalesManager.PL.Classes
 {
     public class SaleViewModel
     {
-        public string Product { get; set; }
-        public string Client { get; set; }
+        public string ProductName { get; set; }
+        public string ClientName { get; set; }
         public int Cost { get; set; }
         public DateTime Date { get; set; }
     }

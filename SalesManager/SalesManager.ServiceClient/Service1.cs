@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SalesManager.PL.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,25 +7,32 @@ using System.Diagnostics;
 using System.Linq;
 using System.ServiceProcess;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SalesManager.ServiceClient
 {
-    partial class Service : ServiceBase
+    partial class Service1 : ServiceBase
     {
-        public Service()
+        private Services _services;
+
+        public Service1()
         {
             InitializeComponent();
+            CanStop = true;
         }
 
         protected override void OnStart(string[] args)
         {
-            // TODO: Добавьте код для запуска службы.
+            _services = new Services();
+            Thread servicePLThread = new Thread(new ThreadStart(_services.StartClient));
+            servicePLThread.Start();
         }
 
         protected override void OnStop()
         {
-            // TODO: Добавьте код, выполняющий подготовку к остановке службы.
+            _services.StopClient();
+            Thread.Sleep(1000);
         }
     }
 }

@@ -44,7 +44,7 @@
       <HintPath>..\packages\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="SalesManager.DAL">
-      <HintPath>..\SalesManager.DAL\bin\Debug\SalesManager.DAL.dll</HintPath>
+      <HintPath>..\SalesManager.DAL\obj\Debug\SalesManager.DAL.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

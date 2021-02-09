@@ -14,7 +14,7 @@ namespace SalesManager.ServiceClient
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[]
             {
-                new Service()
+                new Service1()
             };
             ServiceBase.Run(ServicesToRun);
         }

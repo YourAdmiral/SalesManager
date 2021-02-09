@@ -18,8 +18,8 @@ namespace SalesManager.PL.Services
 
         public CsvParser(string errorFilesPath)
         {
-            ManagersViewModel = new ConcurrentDictionary<string, ManagerViewModel>();
             _errorFilesPath = errorFilesPath;
+            ManagersViewModel = new ConcurrentDictionary<string, ManagerViewModel>();
         }
 
         public void Parse(string filePath)
@@ -51,12 +51,13 @@ namespace SalesManager.PL.Services
         public SaleViewModel GetSaleInfo(string currentLine)
         {
             string[] sailesInfo = currentLine.Split(';');
+            Console.WriteLine(sailesInfo[0] + "; " + sailesInfo[1] + "; " + sailesInfo[2] + "; " + sailesInfo[3]);
             return new SaleViewModel()
             {
-                Date = DateTime.ParseExact(sailesInfo[0], "ddmmyyyy", null),
-                Client = sailesInfo[1],
-                Product = sailesInfo[2],
-                Cost = Convert.ToInt32(sailesInfo[3])
+                Date = DateTime.ParseExact(sailesInfo[0].Substring(1), "dd.MM.yyyy", null),
+                ClientName = sailesInfo[1],
+                ProductName = sailesInfo[2],
+                Cost = Convert.ToInt32(sailesInfo[3].Remove(sailesInfo[3].Length-1))
             };
         }
 

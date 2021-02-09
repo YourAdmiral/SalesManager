@@ -1,6 +1,6 @@
 ﻿namespace SalesManager.ServiceClient
 {
-    partial class Service
+    partial class Service1
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -28,11 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            // 
-            // ins
-            // 
-            this.ServiceName = "Service";
-
+            components = new System.ComponentModel.Container();
+            this.ServiceName = "Service1";
         }
 
         #endregion
