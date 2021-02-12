@@ -30,12 +30,13 @@ namespace SalesManager.PL.Services
             StreamReader reader = new StreamReader(filePath);
             try
             {
+                Console.WriteLine($"Added file: {Path.GetFileName(filePath)}");
                 while ((currentLine = reader.ReadLine()) != null)
                 {
                     salesViewModel.Add(GetSaleInfo(currentLine));
                 }
                 AddSaleInfo(filePath, salesViewModel);
-
+                Console.WriteLine();
             }
             catch (Exception e)
             {

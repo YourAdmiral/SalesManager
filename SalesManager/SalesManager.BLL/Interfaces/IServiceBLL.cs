@@ -10,6 +10,6 @@ namespace SalesManager.BLL.Interfaces
     public interface IServiceBLL
     {
         void CheckDatabase();
-        void HandleManagerInfo(ManagerDTO managerDTO);
+        void HandleData(ManagerDTO managerDTO);
     }
 }

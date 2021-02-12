@@ -22,8 +22,9 @@ namespace SalesManager.ServiceClient
             processInstaller = new ServiceProcessInstaller();
 
             processInstaller.Account = ServiceAccount.LocalSystem;
-            serviceInstaller.StartType = ServiceStartMode.Manual;
+            serviceInstaller.StartType = ServiceStartMode.Automatic;
             serviceInstaller.ServiceName = "Service1";
+            serviceInstaller.DisplayName = "SalesService";
             Installers.Add(processInstaller);
             Installers.Add(serviceInstaller);
         }

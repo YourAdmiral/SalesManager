@@ -13,7 +13,7 @@ namespace SalesManager
     {
         static void Main(string[] args)
         {
-            var service = new Services();
+            var service = new ServicePL();
             service.StartClient();
             Console.ReadKey();
         }

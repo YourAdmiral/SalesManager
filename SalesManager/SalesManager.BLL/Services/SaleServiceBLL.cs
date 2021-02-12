@@ -29,20 +29,19 @@ namespace SalesManager.BLL.Services
             _db.Dispose();
         }
 
-        public void HandleManagerInfo(ManagerDTO managerDTO)
+        public void HandleData(ManagerDTO managerDTO)
         {
             IUnitOfWork db = _kernel.Get<IUnitOfWork>();
             int? managerId = db.Managers.GetId(x => x.Name == managerDTO.Name);
-            if (managerId != null)
-                AddSalesInfo(managerDTO, (int)managerId, db);
+            if (managerId == null)
+                AddManager(managerDTO, db);
             else
-                AddNewManager(managerDTO, db);
+                AddSale(managerDTO, (int)managerId, db);
             db.Dispose();
         }
 
-        private void AddSalesInfo(ManagerDTO managerDTO, int managerId, IUnitOfWork db)
+        private void AddSale(ManagerDTO managerDTO, int managerId, IUnitOfWork db)
         {
-
             if (managerDTO.Sales.Count != 0)
             {
                 Mapper.Initialize(cfg => { cfg.CreateMap<SaleDTO, Sale>().ForMember(dest => dest.Manager, option => option.Ignore()); } );
@@ -56,7 +55,7 @@ namespace SalesManager.BLL.Services
             }
         }
 
-        private void AddNewManager(ManagerDTO managerDTO, IUnitOfWork db)
+        private void AddManager(ManagerDTO managerDTO, IUnitOfWork db)
         {
             Mapper.Initialize(cfg => { cfg.CreateMap<SaleDTO, Sale>().ForMember(dest => dest.Manager, option => option.Ignore()); cfg.CreateMap<ManagerDTO, Manager>(); } );
             Mapper.AssertConfigurationIsValid();
