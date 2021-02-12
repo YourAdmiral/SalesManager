@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SalesManager.BLL.DTO
+namespace SalesManager.Core.DTO
 {
     public class ManagerDTO
     {

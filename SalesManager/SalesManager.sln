@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesManager.PL", "SalesMan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesManager.ServiceClient", "SalesManager.ServiceClient\SalesManager.ServiceClient.csproj", "{92F2FEFC-06D0-405A-8F40-E4B4E33D195C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesManager.Core", "SalesManager.Core\SalesManager.Core.csproj", "{C4122B72-3088-470E-815B-2948F077B155}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{92F2FEFC-06D0-405A-8F40-E4B4E33D195C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92F2FEFC-06D0-405A-8F40-E4B4E33D195C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92F2FEFC-06D0-405A-8F40-E4B4E33D195C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4122B72-3088-470E-815B-2948F077B155}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4122B72-3088-470E-815B-2948F077B155}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4122B72-3088-470E-815B-2948F077B155}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4122B72-3088-470E-815B-2948F077B155}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

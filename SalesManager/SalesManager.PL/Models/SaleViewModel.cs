@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SalesManager.PL.Classes
+namespace SalesManager.PL.Models
 {
     public class SaleViewModel
     {

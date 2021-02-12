@@ -1,5 +1,4 @@
-﻿using SalesManager.PL.Classes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -10,8 +9,9 @@ using System.Configuration;
 using AutoMapper;
 using Ninject;
 using SalesManager.BLL.Interfaces;
-using SalesManager.BLL.DTO;
 using SalesManager.PL.Managers;
+using SalesManager.PL.Models;
+using SalesManager.Core.DTO;
 
 namespace SalesManager.PL.Services
 {

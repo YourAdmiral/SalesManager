@@ -1,5 +1,4 @@
-﻿using SalesManager.PL.Classes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SalesManager.PL.Services;
 using System.Threading;
+using SalesManager.PL.Models;
 
 namespace SalesManager.PL.Managers
 {

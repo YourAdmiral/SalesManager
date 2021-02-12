@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Ninject;
-using SalesManager.BLL.DTO;
 using SalesManager.BLL.Interfaces;
+using SalesManager.Core.DTO;
 using SalesManager.DAL.Entities;
 using SalesManager.DAL.Interfaces;
 using System;

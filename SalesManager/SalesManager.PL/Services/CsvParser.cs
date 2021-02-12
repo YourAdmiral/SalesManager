@@ -1,4 +1,4 @@
-﻿using SalesManager.PL.Classes;
+﻿using SalesManager.PL.Models;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;

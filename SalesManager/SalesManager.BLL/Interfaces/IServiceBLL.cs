@@ -1,4 +1,4 @@
-﻿using SalesManager.BLL.DTO;
+﻿using SalesManager.Core.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
