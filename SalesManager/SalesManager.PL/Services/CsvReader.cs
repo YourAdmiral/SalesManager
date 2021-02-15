@@ -22,7 +22,7 @@ namespace SalesManager.PL.Services
             ManagersViewModels = new ConcurrentDictionary<string, ManagerViewModel>();
         }
 
-        public void Parse(string filePath)
+        public void Read(string filePath)
         {
             string currentLine;
             bool check = false;
@@ -33,7 +33,14 @@ namespace SalesManager.PL.Services
                 Console.WriteLine($"Added file: {Path.GetFileName(filePath)}");
                 while ((currentLine = reader.ReadLine()) != null)
                 {
-                    salesViewModel.Add(GetSaleInfo(currentLine));
+                    try
+                    {
+                        salesViewModel.Add(GetSaleInfo(currentLine));
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Current line cannot be read: {ex.Message}");
+                    }
                 }
                 AddSalesInfo(filePath, salesViewModel);
                 Console.WriteLine();

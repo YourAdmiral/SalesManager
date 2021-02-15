@@ -36,7 +36,7 @@ namespace SalesManager.PL.Managers
             {
                 _timer.Change(Timeout.Infinite, 0);
 
-                Parallel.ForEach(_filesPaths, _csvReader.Parse);
+                Parallel.ForEach(_filesPaths, _csvReader.Read);
                 _managersFiles = _csvReader.ManagersViewModels.Values;
                 Parallel.ForEach(_managersFiles, HandleFiles);
 
