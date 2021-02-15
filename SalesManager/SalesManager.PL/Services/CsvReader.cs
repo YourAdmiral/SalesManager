@@ -10,16 +10,16 @@ using System.Threading.Tasks;
 
 namespace SalesManager.PL.Services
 {
-    public class CsvParser
+    public class CsvReader
     {
         private string _errorFilesPath;
         private Regex regex = new Regex(@"[a-я]*", RegexOptions.IgnoreCase);
-        public ConcurrentDictionary<string, ManagerViewModel> ManagersViewModel { get; set; }
+        public ConcurrentDictionary<string, ManagerViewModel> ManagersViewModels { get; set; }
 
-        public CsvParser(string errorFilesPath)
+        public CsvReader(string errorFilesPath)
         {
             _errorFilesPath = errorFilesPath;
-            ManagersViewModel = new ConcurrentDictionary<string, ManagerViewModel>();
+            ManagersViewModels = new ConcurrentDictionary<string, ManagerViewModel>();
         }
 
         public void Parse(string filePath)
@@ -35,7 +35,7 @@ namespace SalesManager.PL.Services
                 {
                     salesViewModel.Add(GetSaleInfo(currentLine));
                 }
-                AddSaleInfo(filePath, salesViewModel);
+                AddSalesInfo(filePath, salesViewModel);
                 Console.WriteLine();
             }
             catch (Exception e)
@@ -45,7 +45,7 @@ namespace SalesManager.PL.Services
             }
             finally
             {
-                FinishParse(reader, check, filePath);
+                FinishRead(reader, check, filePath);
             }
         }
 
@@ -62,22 +62,28 @@ namespace SalesManager.PL.Services
             };
         }
 
-        public void FinishParse(StreamReader reader, bool check, string filePath)
+        public void FinishRead(StreamReader reader, bool check, string filePath)
         {
             if (reader != null)
+            {
                 reader.Close();
+            }
 
             if (check)
             {
                 string path = Path.Combine(_errorFilesPath, Path.GetFileName(filePath));
                 if (!File.Exists(path))
+                {
                     File.Move(filePath, path);
+                }
                 else
+                {
                     File.Delete(filePath);
+                }
             }
         }
 
-        public void AddSaleInfo(string filePath, ICollection<SaleViewModel> salesViewModel)
+        public void AddSalesInfo(string filePath, ICollection<SaleViewModel> salesViewModel)
         {
             ManagerViewModel managerViewModel = new ManagerViewModel()
             {
@@ -85,7 +91,7 @@ namespace SalesManager.PL.Services
                 FilePath = filePath
             };
             managerViewModel.Sales = salesViewModel;
-            ManagersViewModel.GetOrAdd(managerViewModel.Name, managerViewModel);
+            ManagersViewModels.GetOrAdd(managerViewModel.Name, managerViewModel);
         }
     }
 }

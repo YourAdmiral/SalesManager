@@ -13,9 +13,16 @@ namespace SalesManager
     {
         static void Main(string[] args)
         {
-            var service = new ServicePL();
-            service.StartClient();
-            Console.ReadKey();
+            try
+            {
+                var service = new ServicePL();
+                service.StartClient();
+                Console.ReadKey();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
         }
     }
 }

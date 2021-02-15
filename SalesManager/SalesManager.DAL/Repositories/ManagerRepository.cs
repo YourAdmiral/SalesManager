@@ -29,11 +29,15 @@ namespace SalesManager.DAL.Repositories
             _db.Entry(item).State = EntityState.Modified;
         }
 
-        public void Delete(int id)
+        public bool TryDelete(int id)
         {
             Manager manager = _db.Managers.Find(id);
             if (manager != null)
+            {
                 _db.Managers.Remove(manager);
+                return true;
+            }
+            return false;
         }
 
         public Manager Get(int id)
@@ -55,7 +59,9 @@ namespace SalesManager.DAL.Repositories
         {
             Manager manager = _db.Managers.FirstOrDefault(predicate);
             if (manager != null)
+            {
                 return manager.Id;
+            }
             return null;
         }
     }

@@ -15,7 +15,7 @@ namespace SalesManager.PL.Managers
         private ICollection<string> _filesPaths;
         private ICollection<ManagerViewModel> _managersFiles;
 
-        private CsvParser _csvParser;
+        private CsvReader _csvReader;
         private ServicePL _servicePL;
         private FoldersManager _foldersManager;
 
@@ -25,7 +25,7 @@ namespace SalesManager.PL.Managers
         public FilesManager(ServicePL servicePL)
         {
             _foldersManager = new FoldersManager();
-            _csvParser = new CsvParser(_foldersManager.ErrorFilesPath);
+            _csvReader = new CsvReader(_foldersManager.ErrorFilesPath);
             _servicePL = servicePL;
         }
 
@@ -36,12 +36,12 @@ namespace SalesManager.PL.Managers
             {
                 _timer.Change(Timeout.Infinite, 0);
 
-                Parallel.ForEach(_filesPaths, _csvParser.Parse);
-                _managersFiles = _csvParser.ManagersViewModel.Values;
+                Parallel.ForEach(_filesPaths, _csvReader.Parse);
+                _managersFiles = _csvReader.ManagersViewModels.Values;
                 Parallel.ForEach(_managersFiles, HandleFiles);
 
                 _filesPaths.Clear();
-                _csvParser.ManagersViewModel.Clear();
+                _csvReader.ManagersViewModels.Clear();
                 _timer.Change(0, 1000);
             }
         }
@@ -52,9 +52,13 @@ namespace SalesManager.PL.Managers
 
             string targetPath = Path.Combine(_foldersManager.ReadyFilesPath, Path.GetFileName(manager.FilePath));
             if (!File.Exists(targetPath))
+            {
                 File.Move(manager.FilePath, targetPath);
+            }
             else
+            {
                 File.Delete(manager.FilePath);
+            }
         }
 
         public void StartTimer()

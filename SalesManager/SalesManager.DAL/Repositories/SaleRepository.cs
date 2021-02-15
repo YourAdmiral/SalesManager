@@ -29,11 +29,15 @@ namespace SalesManager.DAL.Repositories
             _db.Entry(item).State = EntityState.Modified;
         }
 
-        public void Delete(int id)
+        public bool TryDelete(int id)
         {
             Sale sale = _db.Sales.Find(id);
             if (sale != null)
+            {
                 _db.Sales.Remove(sale);
+                return true;
+            }
+            return false;
         }
 
         public Sale Get(int id)
@@ -55,7 +59,9 @@ namespace SalesManager.DAL.Repositories
         {
             Sale sale = _db.Sales.FirstOrDefault(predicate);
             if (sale != null)
+            {
                 return sale.Id;
+            }
             return null;
         }
     }

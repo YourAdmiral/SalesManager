@@ -34,9 +34,13 @@ namespace SalesManager.BLL.Services
             IUnitOfWork db = _kernel.Get<IUnitOfWork>();
             int? managerId = db.Managers.GetId(x => x.Name == managerDTO.Name);
             if (managerId == null)
+            {
                 AddManager(managerDTO, db);
+            }    
             else
+            {
                 AddSale(managerDTO, (int)managerId, db);
+            }
             db.Dispose();
         }
 

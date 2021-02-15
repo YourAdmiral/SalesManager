@@ -13,7 +13,7 @@ namespace SalesManager.DAL.Interfaces
         IEnumerable<T> Find(Func<T, bool> predicate);
         void Create(T item);
         void Update(T item);
-        void Delete(int id);
+        bool TryDelete(int id);
         int? GetId(Func<T, bool> predicate);
     }
 }
