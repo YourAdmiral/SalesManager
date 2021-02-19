@@ -15,7 +15,7 @@ namespace SalesManager
         {
             try
             {
-                var service = new ServicePL();
+                var service = new Scanner();
                 service.StartClient();
                 Console.ReadKey();
             }

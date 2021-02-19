@@ -14,7 +14,7 @@ namespace SalesManager.ServiceClient
 {
     partial class Service1 : ServiceBase
     {
-        private ServicePL _services;
+        private Scanner _services;
 
         public Service1()
         {
@@ -24,7 +24,7 @@ namespace SalesManager.ServiceClient
 
         protected override void OnStart(string[] args)
         {
-            _services = new ServicePL();
+            _services = new Scanner();
             Thread servicePLThread = new Thread(new ThreadStart(_services.StartClient));
             servicePLThread.Start();
         }

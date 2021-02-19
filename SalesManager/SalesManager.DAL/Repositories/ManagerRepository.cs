@@ -58,11 +58,7 @@ namespace SalesManager.DAL.Repositories
         public int? GetId(Func<Manager, bool> predicate)
         {
             Manager manager = _db.Managers.FirstOrDefault(predicate);
-            if (manager != null)
-            {
-                return manager.Id;
-            }
-            return null;
+            return manager?.Id;
         }
     }
 }

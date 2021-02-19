@@ -15,7 +15,7 @@ using SalesManager.Core.DTO;
 
 namespace SalesManager.PL.Services
 {
-    public class ServicePL
+    public class Scanner
     {
         private string _connectionString;
         private IServiceBLL _serviceBLL;
@@ -25,7 +25,7 @@ namespace SalesManager.PL.Services
         public event Action TimerStart;
         public event Action TimerStop;
 
-        public ServicePL()
+        public Scanner()
         {
             _filesManager = new FilesManager(this);
 
@@ -56,7 +56,10 @@ namespace SalesManager.PL.Services
 
         public void HandleViewModel(ManagerViewModel manager)
         {
-            Mapper.Initialize(cfg => { cfg.CreateMap<ManagerViewModel, ManagerDTO>(); cfg.CreateMap<SaleViewModel, SaleDTO>(); });
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<ManagerViewModel, ManagerDTO>(); cfg.CreateMap<SaleViewModel, SaleDTO>();
+            });
             ManagerDTO managerDTO = Mapper.Map<ManagerViewModel, ManagerDTO>(manager);
             _serviceBLL.HandleData(managerDTO);
         }

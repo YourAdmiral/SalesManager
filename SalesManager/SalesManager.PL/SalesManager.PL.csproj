@@ -62,7 +62,7 @@
     <Compile Include="Services\CsvReader.cs" />
     <Compile Include="Managers\FoldersManager.cs" />
     <Compile Include="Services\ServiceModulePL.cs" />
-    <Compile Include="Services\ServicePL.cs" />
+    <Compile Include="Services\Scanner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -16,13 +16,13 @@ namespace SalesManager.PL.Managers
         private ICollection<ManagerViewModel> _managersFiles;
 
         private CsvReader _csvReader;
-        private ServicePL _servicePL;
+        private Scanner _servicePL;
         private FoldersManager _foldersManager;
 
         private Timer _timer;
         private TimerCallback _callBack;
 
-        public FilesManager(ServicePL servicePL)
+        public FilesManager(Scanner servicePL)
         {
             _foldersManager = new FoldersManager();
             _csvReader = new CsvReader(_foldersManager.ErrorFilesPath);

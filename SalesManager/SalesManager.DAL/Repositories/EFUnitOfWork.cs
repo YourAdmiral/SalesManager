@@ -26,7 +26,9 @@ namespace SalesManager.DAL.Repositories
             get
             {
                 if (_managerRepository == null)
+                {
                     _managerRepository = new ManagerRepository(_db);
+                }
                 return _managerRepository;
             }
         }
@@ -36,7 +38,9 @@ namespace SalesManager.DAL.Repositories
             get
             {
                 if (_saleRepository == null)
+                {
                     _saleRepository = new SaleRepository(_db);
+                }
                 return _saleRepository;
             }
         }
@@ -49,8 +53,12 @@ namespace SalesManager.DAL.Repositories
         protected virtual void Dispose(bool disposing)
         {
             if (!_disposed)
+            {
                 if (disposing)
+                {
                     _db.Dispose();
+                }
+            }
             _disposed = true;
         }
 

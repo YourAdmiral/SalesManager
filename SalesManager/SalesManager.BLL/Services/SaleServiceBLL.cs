@@ -36,7 +36,7 @@ namespace SalesManager.BLL.Services
             if (managerId == null)
             {
                 AddManager(managerDTO, db);
-            }    
+            }
             else
             {
                 AddSale(managerDTO, (int)managerId, db);
@@ -48,7 +48,11 @@ namespace SalesManager.BLL.Services
         {
             if (managerDTO.Sales.Count != 0)
             {
-                Mapper.Initialize(cfg => { cfg.CreateMap<SaleDTO, Sale>().ForMember(dest => dest.Manager, option => option.Ignore()); } );
+                Mapper.Initialize(cfg =>
+                {
+                    cfg.CreateMap<SaleDTO, Sale>().ForMember(dest => dest.Manager, option => option.Ignore());
+                });
+
                 ICollection<Sale> sales = Mapper.Map<ICollection<SaleDTO>, ICollection<Sale>>(managerDTO.Sales);
                 foreach (Sale sale in sales)
                 {
@@ -61,8 +65,13 @@ namespace SalesManager.BLL.Services
 
         private void AddManager(ManagerDTO managerDTO, IUnitOfWork db)
         {
-            Mapper.Initialize(cfg => { cfg.CreateMap<SaleDTO, Sale>().ForMember(dest => dest.Manager, option => option.Ignore()); cfg.CreateMap<ManagerDTO, Manager>(); } );
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<SaleDTO, Sale>().ForMember(dest => dest.Manager, option => option.Ignore());
+                cfg.CreateMap<ManagerDTO, Manager>();
+            });
             Mapper.AssertConfigurationIsValid();
+
             Manager manager = Mapper.Map<ManagerDTO, Manager>(managerDTO);
             db.Managers.Create(manager);
             db.Save();
